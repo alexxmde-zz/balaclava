@@ -1,4 +1,5 @@
-let userCtrl = require('../../user/controllers/userCtrl')
+let userCtrl = require('../../user/controllers/userCtrl'),
+    auth = require('../../auth/default')
 
 class UserRoutesLoader {
   constructor() {
@@ -11,11 +12,11 @@ class UserRoutesLoader {
     r.post('/user/login', userCtrl.generateAuthToken) //Login
     
     //CRUD
-    r.put('/user/:userId', userCtrl.updateUser) //Update
-    r.post('/user/register', userCtrl.registerUser) //Register
-    r.get('/user/:userId', userCtrl.getOneUser) //Retrive One
-    r.get('/users', userCtrl.getUsers) //Retrive All
-    r.delete('/user/:userId', userCtrl.deactivateUser) //Delete User
+    r.put('/user/:userId', auth, userCtrl.updateUser) //Update
+    r.post('/user/register', auth, userCtrl.registerUser) //Register
+    r.get('/user/:userId', auth, userCtrl.getOneUser) //Retrive One
+    r.get('/users', auth, userCtrl.getUsers) //Retrive All
+    r.delete('/user/:userId', auth, userCtrl.deactivateUser) //Delete User
     
   }
 

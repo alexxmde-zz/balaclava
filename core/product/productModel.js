@@ -5,7 +5,8 @@ let mongoose = require('mongoose'),
     category: {type: Schema.ObjectId, ref:'Category', required:true},
     active: {type: Boolean, required: true},
     regDate: {type: Date, default: Date.now},
-    images: [{type: Buffer }],
+    images: [{type: Schema.ObjectId, ref: 'Media' }],
+    mainImage: {type: Schema.ObjectId, ref: 'Media'}
     price: {type: Number},
   })
 
