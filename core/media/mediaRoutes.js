@@ -11,8 +11,8 @@ class MediaRoutesLoader {
   injectRoutes(r) {
     r.get('/medias', mediaCtrl.getMedias) 
     r.get('/media/:id', mediaCtrl.getOneMedia)
-    r.post('/media', upload.single('file'), auth, mediaCtrl.addMedia)
-    r.put('/media/:id', upload.single('file'), auth, mediaCtrl.updateMedia)
+    r.post('/media', auth, upload.single('file'), auth, mediaCtrl.addMedia)
+    r.put('/media/:id', auth, upload.single('file'), auth, mediaCtrl.updateMedia)
     r.delete('/media/:id',auth, mediaCtrl.purgeMedia)
   }
 }

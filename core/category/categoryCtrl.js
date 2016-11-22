@@ -54,8 +54,6 @@ class CategoryCtrl {
     })
   }
 
-
-
 }
 
 module.exports = CategoryCtrl
